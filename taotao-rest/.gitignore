@@ -1,3 +1,4 @@
 /target/
 
 /pom.xml
+/src/main/resources/resource/*.properties
