@@ -1,0 +1,5 @@
+#服务器定义
+#服务器基地址
+REST_BASE_URL=http://localhost:8080/rest
+#中间轮播大广告查询地址
+REST_INDEX_AD_URL=/content/list/89
