@@ -2,6 +2,8 @@ package com.taotao.rest.dao;
 
 public interface JedisClient {
 
+	boolean exists(String key);
+	boolean hexists(String hkey, String key);
 	String get(String key);
 	String set(String key, String value);
 	String hget(String hkey, String key);

@@ -30,11 +30,13 @@ public class ContentServiceImpl implements ContentService {
 	public List<TbContent> getContentList(long contentCid) {
 		//从缓存中取内容
 		try {
-			String result = jedisClient.hget(INDEX_CONTENT_REDIS_KEY, contentCid + "");
-			if (!StringUtils.isBlank(result)) {
-				//把字符串转换成list
-				List<TbContent> resultList = JsonUtils.jsonToList(result, TbContent.class);
-				return resultList;
+			if(jedisClient.hexists(INDEX_CONTENT_REDIS_KEY, contentCid + "")) {
+				String result = jedisClient.hget(INDEX_CONTENT_REDIS_KEY, contentCid + "");
+				if (!StringUtils.isBlank(result)) {
+					//把字符串转换成list
+					List<TbContent> resultList = JsonUtils.jsonToList(result, TbContent.class);
+					return resultList;
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

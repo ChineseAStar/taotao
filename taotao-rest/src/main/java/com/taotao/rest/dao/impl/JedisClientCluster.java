@@ -58,4 +58,16 @@ public class JedisClientCluster implements JedisClient {
 		return jedisCluster.hdel(hkey, key);
 	}
 
+	@Override
+	public boolean exists(String key) {
+		// TODO Auto-generated method stub
+		return jedisCluster.exists(key);
+	}
+
+	@Override
+	public boolean hexists(String hkey, String key) {
+		// TODO Auto-generated method stub
+		return jedisCluster.hexists(hkey, key);
+	}
+
 }
